@@ -28,3 +28,20 @@ Learn JavaScript basics.
 -First woking version of material calculator
 -Works 100% of time consitently
 
+### What did i do?
+
+-Finished Calculator
+-Works consitently
+-Interface looks clean
+-Added useful features (Clear all fields, Calculator history, Add all from history)
+
+### Problems
+
+-Decimal points wouldn't work
+-Wasn't clear with my prompts
+-Kept doubling back on ideas
+-Wasn't very intuitive
+
+### Next Session
+
+Improve design of website and make it look professional
