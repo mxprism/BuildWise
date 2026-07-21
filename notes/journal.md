@@ -20,3 +20,11 @@
 ### Next Session
 
 Learn JavaScript basics.
+
+## Day 2
+
+### Goals
+
+-First woking version of material calculator
+-Works 100% of time consitently
+
