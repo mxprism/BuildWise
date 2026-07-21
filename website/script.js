@@ -9,6 +9,7 @@ const pastCalculationsButton = document.getElementById(
   "past-calculations-button"
 );
 const addAllButton = document.getElementById("add-all-button");
+const clearHistoryButton = document.getElementById("clear-history-button");
 
 const historySection = document.getElementById("history-section");
 const historyList = document.getElementById("calculation-history");
@@ -50,10 +51,9 @@ calculateButton.addEventListener("click", () => {
   const quantity = Number(quantityInput.value);
   const price = Number(priceInput.value);
 
-  if (material === "" || quantity <= 0 || price <= 0) {
+ if (material === "" || !Number.isFinite(quantity) || !Number.isFinite(price) ||  quantity <= 0 || price <= 0) {
     alert("Please enter a material name, quantity, and price.");
-    return;
-  }
+    return; }
 
   const total = quantity * price;
 
@@ -66,8 +66,9 @@ calculateButton.addEventListener("click", () => {
     total: total
   });
 
-  saveCalculations();
-  showPastCalculations();
+saveCalculations();
+showPastCalculations();
+historySection.hidden = false;
 });
 
 clearAllButton.addEventListener("click", () => {
@@ -75,12 +76,13 @@ clearAllButton.addEventListener("click", () => {
   quantityInput.value = "";
   priceInput.value = "";
   totalDisplay.textContent = "£0.00";
+});
 
-  calculations.length = 0;
-  localStorage.removeItem("buildwiseCalculations");
-
-  showPastCalculations();
-  historySection.hidden = true;
+document.querySelectorAll(".clear-field").forEach((button) => {
+  button.addEventListener("click", () => {
+    const inputId = button.dataset.input;
+    document.getElementById(inputId).value = "";
+  });
 });
 
 pastCalculationsButton.addEventListener("click", () => {
@@ -95,4 +97,29 @@ addAllButton.addEventListener("click", () => {
   );
 
   totalDisplay.textContent = formatPrice(totalOfAllCalculations);
+});
+
+clearHistoryButton.addEventListener("click", () => {
+  calculations.length = 0;
+  localStorage.removeItem("buildwiseCalculations");
+  showPastCalculations();
+  totalDisplay.textContent = "£0.00";
+});
+
+quantityInput.addEventListener("keydown", (event) => {
+  if (["e", "E", "+", "-", "."].includes(event.key)) {
+    event.preventDefault();
+  }
+});
+
+priceInput.addEventListener("input", () => {
+  let value = priceInput.value.replace(/[^\d.]/g, "");
+
+  const decimalParts = value.split(".");
+
+  if (decimalParts.length > 2) {
+    value = `${decimalParts[0]}.${decimalParts.slice(1).join("")}`;
+  }
+
+  priceInput.value = value;
 });
