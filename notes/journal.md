@@ -45,3 +45,12 @@ Learn JavaScript basics.
 ### Next Session
 
 Improve design of website and make it look professional
+
+## Day 3
+
+### Goals
+
+-Learn how specific function works
+-Be able to replicate it from memory
+-Be able to describe what each part does
+-Make user interface cleaner & more professional
