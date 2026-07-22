@@ -3,48 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BuildWise</title>
+    <meta name="description" content="BuildWise helps you create quick material cost estimates." />
+    <title>BuildWise | Material cost calculator</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-
   <body>
-    <h1>BuildWise</h1>
+    <main class="app-shell">
+      <header class="page-header">
+        <a class="brand" href="#top" aria-label="BuildWise home"><span class="brand-mark" aria-hidden="true">BW</span><span>BuildWise</span></a>
+        <p class="eyebrow">Material cost calculator</p>
+        <h1>Build a clearer estimate.</h1>
+        <p class="intro">Add a material, its quantity, and unit price to calculate its cost in seconds.</p>
+      </header>
 
-<div class="calculator-fields">
-  <label for="material-name">Material Name</label>
-  <div class="input-row">
-    <input type="text" id="material-name" name="material-name" />
-    <button type="button" class="clear-field" data-input="material-name" aria-label="Clear material name">×</button>
-  </div>
+      <section class="calculator-card" aria-labelledby="calculator-heading">
+        <div class="card-heading">
+          <div><p class="section-label">New item</p><h2 id="calculator-heading">Calculate material cost</h2></div>
+          <button type="button" id="clear-all-button" class="button button-quiet">Clear form</button>
+        </div>
+        <form id="calculator-form" novalidate>
+          <div class="form-grid">
+            <div class="field field-wide">
+              <label for="material-name">Material name</label>
+              <div class="input-row"><input type="text" id="material-name" name="material-name" placeholder="e.g. Oak flooring" autocomplete="off" /><button type="button" class="clear-field" data-input="material-name" aria-label="Clear material name">&times;</button></div>
+            </div>
+            <div class="field">
+              <label for="quantity">Quantity</label>
+              <div class="input-row"><input type="number" id="quantity" name="quantity" placeholder="0" min="1" step="1" inputmode="numeric" /><button type="button" class="clear-field" data-input="quantity" aria-label="Clear quantity">&times;</button></div>
+            </div>
+            <div class="field">
+              <label for="price">Price per item</label>
+              <div class="input-row currency-input"><span aria-hidden="true">£</span><input type="text" id="price" name="price" placeholder="0.00" inputmode="decimal" autocomplete="off" /><button type="button" class="clear-field" data-input="price" aria-label="Clear price">&times;</button></div>
+            </div>
+          </div>
+          <p id="error-message" role="alert" aria-live="polite"></p>
+          <button type="submit" id="calculate-button" class="button button-primary">Calculate cost <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
 
-  <label for="quantity">Quantity</label>
-  <div class="input-row">
-    <input type="number" id="quantity" name="quantity" />
-    <button type="button" class="clear-field" data-input="quantity" aria-label="Clear quantity">×</button>
-  </div>
+      <section class="total-card" aria-live="polite" aria-atomic="true">
+        <div><p class="section-label">Current total</p><p class="total-value" id="total">£0.00</p></div>
+        <p class="total-note">Includes the latest item, or every saved item when using “Show combined total”.</p>
+      </section>
 
-  <label for="price">Price per Item (£)</label>
-  <div class="input-row">
-    <input type="text" id="price" name="price" inputmode="decimal" autocomplete="off" />
-    <button type="button" class="clear-field" data-input="price" aria-label="Clear price">×</button>
-  </div>
-
-  <button type="button" id="clear-all-button">Clear All</button>
-</div>
-
- <p id="error-message" role="alert" aria-live="polite"></p>
-
-<div class="button-group">
-  <button type="button" id="calculate-button">Calculate</button>
-  <button type="button" id="past-calculations-button">Past Calculations</button>
-  <button type="button" id="add-all-button">Add All</button>
-  <button type="button" id="clear-history-button">Clear Past Calculations</button>
-</div>
-
-<p>Total: <span id="total">£0.00</span></p>
-
-<section id="history-section" hidden>
-  <h2>Past Calculations</h2>
-  <ul id="calculation-history"></ul>
-</section>
+      <section class="history-card" aria-labelledby="history-heading">
+        <div class="history-heading">
+          <div><p class="section-label">Saved estimates</p><h2 id="history-heading">Calculation history</h2></div>
+          <div class="history-actions"><button type="button" id="past-calculations-button" class="button button-secondary" aria-expanded="false">View history</button><button type="button" id="add-all-button" class="button button-quiet">Show combined total</button></div>
+        </div>
+        <section id="history-section" hidden aria-live="polite"><ul id="calculation-history"></ul><button type="button" id="clear-history-button" class="text-button">Clear saved history</button></section>
+      </section>
+    </main>
+  </body>
+</html>
