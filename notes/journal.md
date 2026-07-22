@@ -64,4 +64,4 @@ Improve design of website and make it look professional
 
 ### Next Day
 
-Improve and simplify user interface while improving user experience
+Understand more Javascript
