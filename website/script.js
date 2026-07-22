@@ -17,11 +17,13 @@ const historyList = document.getElementById("calculation-history");
 const calculations =
   JSON.parse(localStorage.getItem("buildwiseCalculations")) || [];
 
+const errorMessage = document.getElementById("error-message");
+
 function formatPrice(amount) {
   return `£${amount.toFixed(2)}`;
-}
+} 
 
-function saveCalculations() {
+function saveCalculations() {//tells the browser to save the calculations array in local storage as a string 
   localStorage.setItem("buildwiseCalculations", JSON.stringify(calculations));
 }
 
@@ -46,14 +48,35 @@ function showPastCalculations() {
   });
 }
 
+function showError(message) {
+  errorMessage.textContent = message;
+}
+
+function clearError() {
+  errorMessage.textContent = "";
+}
+
 calculateButton.addEventListener("click", () => {
   const material = materialNameInput.value.trim();
   const quantity = Number(quantityInput.value);
   const price = Number(priceInput.value);
 
- if (material === "" || !Number.isFinite(quantity) || !Number.isFinite(price) ||  quantity <= 0 || price <= 0) {
-    alert("Please enter a material name, quantity, and price.");
-    return; }
+if (material === "") {
+  showError("Please enter a material name.");
+  return;
+}
+
+if (!Number.isFinite(quantity) || quantity <= 0) {
+  showError("Please enter a quantity greater than 0.");
+  return;
+}
+
+if (!Number.isFinite(price) || price <= 0) {
+  showError("Please enter a price greater than £0.");
+  return;
+}
+
+clearError();
 
   const total = quantity * price;
 
@@ -76,6 +99,7 @@ clearAllButton.addEventListener("click", () => {
   quantityInput.value = "";
   priceInput.value = "";
   totalDisplay.textContent = "£0.00";
+  clearError();
 });
 
 document.querySelectorAll(".clear-field").forEach((button) => {
@@ -122,4 +146,19 @@ priceInput.addEventListener("input", () => {
   }
 
   priceInput.value = value;
+});
+
+const calculatorInputs = [
+  materialNameInput,
+  quantityInput,
+  priceInput
+];
+
+calculatorInputs.forEach((input) => {
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      calculateButton.click();
+    }
+  });
 });
