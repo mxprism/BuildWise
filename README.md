@@ -3,11 +3,11 @@
 
 ## Vision
 
-BuildWise is a web application that helps users estimate the materials and costs of timber garden rooms from SketchUp models.
+BuildWise is a web application that helps users estimate the materials and costs of SketchUp models.
 
 ## Current Stage
 
-Project setup complete.
+Usable Website with clean interface
 
 ## Planned Features
 

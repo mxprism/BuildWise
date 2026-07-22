@@ -17,7 +17,7 @@
 
 - Git stores versions of my project.
 
-### Next Session
+### Next Day
 
 Learn JavaScript basics.
 
@@ -42,7 +42,7 @@ Learn JavaScript basics.
 -Kept doubling back on ideas
 -Wasn't very intuitive
 
-### Next Session
+### Next Day
 
 Improve design of website and make it look professional
 
@@ -54,3 +54,14 @@ Improve design of website and make it look professional
 -Be able to replicate it from memory
 -Be able to describe what each part does
 -Make user interface cleaner & more professional
+
+### What did I do?
+
+-I learned how functions work
+-Learned very basic Javascript
+-Made the user interface more intuitive (Press enter button for calculate)
+-Error message pops up inside website not from browser
+
+### Next Day
+
+Improve and simplify user interface while improving user experience
