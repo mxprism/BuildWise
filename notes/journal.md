@@ -65,3 +65,19 @@ Improve design of website and make it look professional
 ### Next Day
 
 Understand more Javascript
+
+## Day 4 
+
+### Goals
+
+-Understand more js
+
+### What did I do?
+
+-Learned arrays
+-Learned constants
+-Learned functions
+
+### Next Day
+
+Learn more js, be able to write and edit small bits of code
