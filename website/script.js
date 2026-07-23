@@ -42,7 +42,7 @@ function calculateCost() {
   clearError();
   const total = quantity * price;
   totalDisplay.textContent = formatPrice(total);
-  calculations.push({ material, quantity, price, total });
+ calculations.push({ material, quantity, price, total }); 
   saveCalculations();
   showPastCalculations();
   historySection.hidden = false;

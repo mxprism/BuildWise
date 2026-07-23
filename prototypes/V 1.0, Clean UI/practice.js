@@ -1,11 +1,22 @@
+function multiply(a, b) {
+    return a*b;
+}
+
 function add(a, b) {
     return a + b;
-}
+ }
 
-function subtract(a, b) {
-    return a - b
-}
+ function multiply(a, b) {
+    return a * b
+ }
 
-function greet(name) {
-    return "Hello", + name;
-}
+ function square(number) {
+    return number * number;
+ }
+
+ const person = {
+    name:"Jacob",
+    age:14,
+ }
+
+ person.country = "UK"
