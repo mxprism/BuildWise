@@ -1,22 +1,24 @@
-function multiply(a, b) {
-    return a*b;
+function add(a, b) {
+   return a + b;
 }
 
-function add(a, b) {
-    return a + b;
- }
+function multiply (a, b) {
+   return a * b;
+}
 
- function multiply(a, b) {
-    return a * b
- }
-
- function square(number) {
-    return number * number;
- }
-
+function square (number) {
+   return multiply(number, number);
+}
  const person = {
-    name:"Jacob",
-    age:14,
+   name: 'John',
+   age: 30, 
+   country: "USA"
  }
 
- person.country = "UK"
+ const calculations = [];
+ calculations.push ({
+   material: 'wood',   
+   quantity: 10,
+   price: 5,
+   total: 50
+ })

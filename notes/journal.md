@@ -81,3 +81,10 @@ Understand more Javascript
 ### Next Day
 
 Learn more js, be able to write and edit small bits of code
+
+## Day 5
+
+### Goals
+
+-Learn more js
+-Be able to write small bits of js
